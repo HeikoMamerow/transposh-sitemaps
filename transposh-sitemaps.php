@@ -13,9 +13,9 @@
  * @package           Transposh_Sitemaps
  *
  * @wordpress-plugin
- * Plugin Name:       transposh-sitemaps
+ * Plugin Name:       Transposh Sitemaps
  * Plugin URI:        https://github.com/HeikoMamerow/transposh-sitemaps
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Creates different kinds of sitemaps for Transposh driven websites.
  * Version:           1.0.0
  * Author:            Heiko Mamerow
  * Author URI:        https://heikomamerow.de
@@ -24,10 +24,9 @@
  * Text Domain:       transposh-sitemaps
  * Domain Path:       /languages
  */
-
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if (!defined('WPINC')) {
+    die;
 }
 
 /**
@@ -35,8 +34,8 @@ if ( ! defined( 'WPINC' ) ) {
  * This action is documented in includes/class-transposh-sitemaps-activator.php
  */
 function activate_transposh_sitemaps() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-transposh-sitemaps-activator.php';
-	Transposh_Sitemaps_Activator::activate();
+    require_once plugin_dir_path(__FILE__) . 'includes/class-transposh-sitemaps-activator.php';
+    Transposh_Sitemaps_Activator::activate();
 }
 
 /**
@@ -44,18 +43,18 @@ function activate_transposh_sitemaps() {
  * This action is documented in includes/class-transposh-sitemaps-deactivator.php
  */
 function deactivate_transposh_sitemaps() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-transposh-sitemaps-deactivator.php';
-	Transposh_Sitemaps_Deactivator::deactivate();
+    require_once plugin_dir_path(__FILE__) . 'includes/class-transposh-sitemaps-deactivator.php';
+    Transposh_Sitemaps_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_transposh_sitemaps' );
-register_deactivation_hook( __FILE__, 'deactivate_transposh_sitemaps' );
+register_activation_hook(__FILE__, 'activate_transposh_sitemaps');
+register_deactivation_hook(__FILE__, 'deactivate_transposh_sitemaps');
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-transposh-sitemaps.php';
+require plugin_dir_path(__FILE__) . 'includes/class-transposh-sitemaps.php';
 
 /**
  * Begins execution of the plugin.
@@ -68,8 +67,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-transposh-sitemaps.php';
  */
 function run_transposh_sitemaps() {
 
-	$plugin = new Transposh_Sitemaps();
-	$plugin->run();
-
+    $plugin = new Transposh_Sitemaps();
+    $plugin->run();
 }
+
 run_transposh_sitemaps();
